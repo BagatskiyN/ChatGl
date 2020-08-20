@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@foreach (var mes in Model.Messages)
+{
+    <div>
+        <div style="font-size:larger">@mes.Text</div>
+        <div style="font-size: smaller">@mes.Sign --- @mes.When</div>
+    </div>
+}
+<div id="bottom" />
+<hr />
+<div>
+    <label asp-for="Text"></label>
+    <input asp-for="Text" value="" />
+    <input type="submit" value="Send" id="sendButton" />
+</div>
+
+@section scripts {
+    <script src="~/lib/aspnet/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/index.js"></script>
+}
